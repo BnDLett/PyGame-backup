@@ -9,15 +9,15 @@ x = 0
 y = 0
 x1 = 380
 y1 = 280
+d = 0
+x2 = 0
+y2 = 0
 def blocc():
     c = random.randint(0, 380)
     b = random.randint(0, 280)
-    print(c)
-    print(b)
     x2 = round(c, -1)
     y2 = round(b, -1)
-    print(x2)
-    print(y2)
+    block = pygame.draw.rect(a, (255, 255, 255), ((x2, y2), (20, 20)))
 blocc()
 killed = False
 while True:
@@ -60,14 +60,16 @@ while True:
                 if event.type == QUIT:
                     pygame.quit()
                     sys.exit()
-    try:
-        block = pygame.draw.rect(a, (255, 255, 255), ((x2, y2), (20, 20)))
-        pygame.draw.rect(a, (0, 210, 0), ((x, y), (20, 20))) #player
-        enemy = pygame.draw.rect(a, (255, 0, 0), ((x1, y1), (20, 20))) #enemy
-        pygame.display.update()
-        mainClock.tick(60)
-    except:
-        pygame.draw.rect(a, (0, 210, 0), ((x, y), (20, 20))) #player
-        enemy = pygame.draw.rect(a, (255, 0, 0), ((x1, y1), (20, 20))) #enemy
-        pygame.display.update()
-        mainClock.tick(60)
+        if d == 0:
+            blocc()
+            d += 1
+        if d == 1:
+                if x == x2:
+                    if y == y2:
+                        d = 0
+                        continue
+        
+    pygame.draw.rect(a, (0, 210, 0), ((x, y), (20, 20))) #player
+    enemy = pygame.draw.rect(a, (255, 0, 0), ((x1, y1), (20, 20))) #enemy
+    pygame.display.update()
+    mainClock.tick(60)
