@@ -40,7 +40,7 @@ class Square(object):
 
     def controller(self, input):
         '''
-        Here, we are using a dictionary containing booleans fopr controlling the movement of the entity,
+        Here, we are using a dictionary containing booleans for controlling the movement of the entity,
         dictionnaries are simple, instead of using a list that can change the order of its items and completly
         messs up our program, dicts give us the useful fonctionnality of giving names to our values, the names are
         called key. Controller takes a parameter "input" that will update the dictionnary and define where to move...
@@ -78,16 +78,12 @@ def keyboard_inputs():
 
     return movement
 
-
-'''
 def reverse_AI():
     # This function reverse the values of the dict
     movement = keyboard_inputs()
     for key in movement.keys():
         movement[key] = not movement[key] # NOT inverts the booleans False => True and True => False
     return movement
-'''
-
 
 def follow_AI(ennemy, player):
     '''
@@ -107,8 +103,6 @@ def follow_AI(ennemy, player):
 
     return movement
 
-
-
 Bob = Square(0, 0, 10, (255, 125, 125)) # Player
 Henry = Square(400, 400, 10, (0, 255, 125)) # Enemy1
 Michelle = Square(0, 400, 1, (0, 0, 255)) # Enemy2
@@ -121,12 +115,10 @@ while True:
             pygame.quit()
             sys.exit()
 
-    '''
     # Enemy1
     Henry.controller(reverse_AI())
     Henry.collisions()
     Henry.draw(screen)
-    '''
 
     # Enemy2
     Michelle.controller(follow_AI(Michelle, Bob))
