@@ -1,4 +1,5 @@
-import pygame, sys
+import pygame
+import sys
 from pygame.locals import *
 
 mainClock = pygame.time.Clock()
@@ -58,7 +59,7 @@ class Enemy(object):
         if used == True:
             if x == x1:
                 if y == y1:
-                    slain = True:
+                    slain = True
 class enemyk(object):
     def attributes():
         b = random.ranint(0, 380)
